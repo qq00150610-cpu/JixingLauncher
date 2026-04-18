@@ -22,7 +22,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.jixing.launcher.managers.VehicleStateManager
-import com.jixing.launcher.model.JixingColors
+import com.jixing.launcher.ui.theme.JixingColors
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -92,7 +92,7 @@ fun FactoryModeScreen(
             // 警告提示
             Card(
                 modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(containerColor = com.jixing.launcher.model.JixingColors.Error.copy(alpha = 0.2f)),
+                colors = CardDefaults.cardColors(containerColor = com.jixing.launcher.ui.theme.JixingColors.Error.copy(alpha = 0.2f)),
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Row(
@@ -102,13 +102,13 @@ fun FactoryModeScreen(
                     Icon(
                         Icons.Default.Warning,
                         contentDescription = null,
-                        tint = com.jixing.launcher.model.JixingColors.Error
+                        tint = com.jixing.launcher.ui.theme.JixingColors.Error
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         "警告：此模式仅供专业人员使用，误操作可能导致系统故障",
                         fontSize = 12.sp,
-                        color = com.jixing.launcher.model.JixingColors.Error
+                        color = com.jixing.launcher.ui.theme.JixingColors.Error
                     )
                 }
             }
@@ -226,7 +226,7 @@ fun FactoryModeScreen(
                             .fillMaxWidth()
                             .height(56.dp)
                             .clickable { /* 恢复出厂设置 */ },
-                        colors = CardDefaults.cardColors(containerColor = com.jixing.launcher.model.JixingColors.Error.copy(alpha = 0.2f)),
+                        colors = CardDefaults.cardColors(containerColor = com.jixing.launcher.ui.theme.JixingColors.Error.copy(alpha = 0.2f)),
                         shape = RoundedCornerShape(12.dp)
                     ) {
                         Row(
@@ -238,13 +238,13 @@ fun FactoryModeScreen(
                             Icon(
                                 Icons.Default.RestartAlt,
                                 contentDescription = null,
-                                tint = com.jixing.launcher.model.JixingColors.Error
+                                tint = com.jixing.launcher.ui.theme.JixingColors.Error
                             )
                             Spacer(modifier = Modifier.width(12.dp))
                             Text(
                                 "恢复出厂设置",
                                 fontSize = 16.sp,
-                                color = com.jixing.launcher.model.JixingColors.Error
+                                color = com.jixing.launcher.ui.theme.JixingColors.Error
                             )
                         }
                     }

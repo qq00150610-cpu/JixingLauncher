@@ -19,13 +19,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.jixing.launcher.model.AppInfo
-import com.jixing.launcher.model.JixingColors
+import com.jixing.launcher.ui.theme.JixingColors
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

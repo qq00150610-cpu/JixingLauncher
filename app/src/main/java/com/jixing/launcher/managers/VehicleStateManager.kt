@@ -14,6 +14,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlin.random.Random
 
+// Car service constant
+private const val CAR_SERVICE = "car_service"
+
 /**
  * 车辆状态管理器
  * 支持车载环境检测和非车载环境模拟
@@ -57,7 +60,7 @@ class VehicleStateManager private constructor(private val context: Context) {
 
         // 也检查是否存在车载服务
         val hasCarService = try {
-            context.getSystemService(Context.CAR_SERVICE) != null
+            context.getSystemService(CAR_SERVICE) != null
         } catch (e: Exception) {
             false
         }

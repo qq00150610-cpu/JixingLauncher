@@ -36,6 +36,7 @@ class AppRepository(private val context: Context) {
 
         val allApps = packages.mapNotNull { appInfo ->
             try {
+                val pkgInfo = getPackageInfo(appInfo.packageName)
                 AppInfo(
                     packageName = appInfo.packageName,
                     appName = pm.getApplicationLabel(appInfo).toString(),
@@ -43,9 +44,9 @@ class AppRepository(private val context: Context) {
                     isSystemApp = (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0,
                     isEnabled = pm.getApplicationEnabledSetting(appInfo.packageName) != 
                                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                    versionName = pm.getPackageVersionName(appInfo.packageName) ?: "",
-                    installTime = getPackageInfo(appInfo.packageName)?.firstInstallTime ?: 0,
-                    updateTime = getPackageInfo(appInfo.packageName)?.lastUpdateTime ?: 0,
+                    versionName = pkgInfo?.versionName ?: "",
+                    installTime = pkgInfo?.firstInstallTime ?: 0,
+                    updateTime = pkgInfo?.lastUpdateTime ?: 0,
                     apkPath = appInfo.sourceDir
                 )
             } catch (e: Exception) {

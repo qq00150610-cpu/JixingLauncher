@@ -25,7 +25,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.jixing.launcher.managers.VoiceAssistantManager
-import com.jixing.launcher.model.JixingColors
+import com.jixing.launcher.ui.theme.JixingColors
 import com.jixing.launcher.model.VoiceCommand
 import com.jixing.launcher.model.VoiceCommandType
 import dagger.hilt.android.AndroidEntryPoint

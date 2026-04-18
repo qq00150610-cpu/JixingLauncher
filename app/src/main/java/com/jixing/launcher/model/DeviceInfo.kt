@@ -48,6 +48,11 @@ data class MemoryInfo(
     val availableBytes: Long,
     val usedBytes: Long = totalBytes - availableBytes
 ) {
+    // 兼容属性别名
+    val totalRam: Long get() = totalBytes
+    val availableRam: Long get() = availableBytes
+    val usedRam: Long get() = usedBytes
+
     val usedPercentage: Float
         get() = if (totalBytes > 0) (usedBytes.toFloat() / totalBytes) * 100 else 0f
 }

@@ -25,7 +25,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.jixing.launcher.managers.AirConditionManager
 import com.jixing.launcher.model.AirConditionMode
 import com.jixing.launcher.model.AirConditionState
-import com.jixing.launcher.model.JixingColors
+import com.jixing.launcher.ui.theme.JixingColors
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -96,31 +96,14 @@ fun HvacScreen(
             
             Spacer(modifier = Modifier.height(24.dp))
             
-            // 电源开关
-            CenterAlignedToggleButton(
+            // 电源开关 - 使用自定义开关按钮
+            PowerToggleButton(
                 checked = state.isEnabled,
                 onCheckedChange = { airConditionManager.togglePower() },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp),
-                colors = ToggleButtonDefaults.colors(
-                    checkedContainerColor = JixingColors.PrimaryBlue,
-                    checkedContentColor = Color.White
-                ),
-                shape = RoundedCornerShape(28.dp)
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Icon(
-                        if (state.isEnabled) Icons.Default.PowerSettingsNew else Icons.Default.Power,
-                        contentDescription = null
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(if (state.isEnabled) "关闭空调" else "开启空调", fontSize = 18.sp)
-                }
-            }
+                    .height(56.dp)
+            )
             
             Spacer(modifier = Modifier.height(24.dp))
             
@@ -434,6 +417,41 @@ fun QuickActionButton(
                 text = label,
                 fontSize = 14.sp,
                 color = if (isActive) JixingColors.AccentAmber else JixingColors.TextSecondaryDark
+            )
+        }
+    }
+}
+
+/**
+ * 电源开关按钮 - 自定义组件替代 CenterAlignedToggleButton
+ */
+@Composable
+fun PowerToggleButton(
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Surface(
+        onClick = { onCheckedChange(!checked) },
+        modifier = modifier,
+        shape = RoundedCornerShape(28.dp),
+        color = if (checked) JixingColors.PrimaryBlue else JixingColors.CardDark
+    ) {
+        Row(
+            modifier = Modifier.fillMaxSize(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Icon(
+                if (checked) Icons.Default.PowerSettingsNew else Icons.Default.Power,
+                contentDescription = null,
+                tint = Color.White
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(
+                text = if (checked) "关闭空调" else "开启空调",
+                fontSize = 18.sp,
+                color = Color.White
             )
         }
     }

@@ -6,6 +6,8 @@ import com.jixing.launcher.model.EditModeState
 import com.jixing.launcher.model.GridItem
 import com.jixing.launcher.model.HomeLayout
 import com.jixing.launcher.model.PageLayout
+import com.jixing.launcher.ui.main.model.GridItemPosition
+import com.jixing.launcher.ui.main.model.PositionSwap
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -118,12 +120,12 @@ class EditModeManager {
         }
 
         val swap = PositionSwap(
-            fromPosition = com.jixing.launcher.ui.main.model.GridItemPosition(
+            fromPosition = GridItemPosition(
                 pageIndex = state.sourcePage,
                 row = state.draggedItem.position / 4,
                 column = state.draggedItem.position % 4
             ),
-            toPosition = com.jixing.launcher.ui.main.model.GridItemPosition(
+            toPosition = GridItemPosition(
                 pageIndex = state.targetPage,
                 row = state.targetPosition / 4,
                 column = state.targetPosition % 4

@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.jixing.launcher.model.JixingColors
+import com.jixing.launcher.ui.theme.JixingColors
 
 /**
  * 分页指示器组件 - 氢桌面风格
@@ -25,14 +25,14 @@ fun PageIndicator(
     Row(modifier.padding(horizontal = 16.dp), Arrangement.Center, Alignment.CenterVertically) {
         repeat(totalPages) { index ->
             val isSelected = index == currentPage
-            val width by animateDpAsState(targetValue = if (isSelected) 24.dp else 8.dp, label = "indicator_width")
-            val color by animateDpAsState(targetValue = if (isSelected) 1f else 0.5f, label = "indicator_opacity").let { anim ->
-                androidx.compose.runtime.remember { anim.value }
-            }.let { if (isSelected) activeColor else inactiveColor.copy(alpha = 0.5f) }.let { androidx.compose.runtime.derivedStateOf { it } }.let { derived ->
-                androidx.compose.runtime.CompositionLocalProvider(androidx.compose.runtime.LocalCompositionLocalProvider provides derived) { derived.value }
-            }
-            Box(Modifier.padding(horizontal = 3.dp).height(8.dp).width(if (isSelected) 24.dp else 8.dp)
-                .clip(CircleShape).background(if (isSelected) activeColor else inactiveColor.copy(alpha = 0.5f)))
+            Box(
+                Modifier
+                    .padding(horizontal = 3.dp)
+                    .height(8.dp)
+                    .width(if (isSelected) 24.dp else 8.dp)
+                    .clip(CircleShape)
+                    .background(if (isSelected) activeColor else inactiveColor.copy(alpha = 0.5f))
+            )
         }
     }
 }

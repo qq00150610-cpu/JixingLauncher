@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.jixing.launcher.model.AppInfo
 import com.jixing.launcher.model.GridItem
-import com.jixing.launcher.model.JixingColors
+import com.jixing.launcher.ui.theme.JixingColors
 
 /**
  * 文件夹编辑弹窗 - 氢桌面风格
@@ -45,7 +45,7 @@ fun FolderEditDialog(
                     Text(when (mode) { FolderDialogMode.CREATE -> "创建文件夹" ; FolderDialogMode.RENAME -> "重命名文件夹" ; FolderDialogMode.EDIT -> "编辑文件夹" },
                         20.sp, FontWeight.Bold, JixingColors.TextPrimaryDark)
                     Spacer(Modifier.height(20.dp))
-                    OutlinedTextField(value = name, onValueChange = { name = it }, label = { Text("文件夹名称") },
+                    OutlinedTextField(value = name, onValueChange = { newValue -> name = newValue }, label = { Text("文件夹名称") },
                         singleLine = true, modifier.fillMaxWidth(),
                         colors = OutlinedTextFieldDefaults.colors(
                             focusedTextColor = JixingColors.TextPrimaryDark, unfocusedTextColor = JixingColors.TextPrimaryDark,
@@ -101,7 +101,13 @@ fun FolderEditDialog(
  * 应用选择弹窗
  */
 @Composable
-private fun AppSelectorDialog(allApps: List<AppInfo>, selectedApps: List<AppInfo>, onDismiss: () -> Unit, onConfirm: (List<AppInfo>) -> Unit) {
+private fun AppSelectorDialog(
+    allApps: List<AppInfo>, 
+    selectedApps: List<AppInfo>, 
+    onDismiss: () -> Unit, 
+    onConfirm: (List<AppInfo>) -> Unit,
+    modifier: Modifier = Modifier
+) {
     var selected by remember { mutableStateOf(selectedApps.toSet()) }
     Dialog(onDismissRequest = onDismiss) {
         Card(modifier.fillMaxWidth().padding(16.dp), shape = RoundedCornerShape(24.dp),

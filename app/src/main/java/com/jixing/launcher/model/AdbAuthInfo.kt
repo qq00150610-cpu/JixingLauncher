@@ -37,9 +37,10 @@ data class AdbStatus(
  * ADB 连接状态
  */
 enum class AdbConnectionStatus {
-    DISCONNECTED,     // 未启用
-    ENABLED_WIRED,     // 有线已启用
-    ENABLED_WIRELESS,  // 无线已启用
-    CONNECTED,        // 已连接计算机
+    DISCONNECTED,     // 未连接
+    CONNECTING,       // 连接中
+    CONNECTED,        // 已连接
+    ENABLED_WIRED,    // 有线已启用
+    ENABLED_WIRELESS, // 无线已启用
     PAIRING           // 配对中
 }

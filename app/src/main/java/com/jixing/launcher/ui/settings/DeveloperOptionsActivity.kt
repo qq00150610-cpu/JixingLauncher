@@ -30,7 +30,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.jixing.launcher.model.AdbStatus
 import com.jixing.launcher.model.AdbConnectionStatus
-import com.jixing.launcher.model.JixingColors
+import com.jixing.launcher.ui.theme.JixingColors
 import com.jixing.launcher.model.UsbConfig
 import com.jixing.launcher.ui.settings.viewmodel.DeveloperOptionsViewModel
 import dagger.hilt.android.AndroidEntryPoint

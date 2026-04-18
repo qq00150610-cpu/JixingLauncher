@@ -133,6 +133,23 @@ class DeveloperOptionsViewModel @Inject constructor(
         }
     }
 
+    // 别名方法 - 与 Activity 中的调用兼容
+    fun enableWirelessAdb() {
+        enableWirelessDebugging()
+    }
+
+    fun setUsbMode(config: UsbConfig) {
+        setUsbConfig(config)
+    }
+
+    fun revokeAuth(keyFingerprint: String) {
+        revokeAuthorization(keyFingerprint)
+    }
+
+    fun revokeAllAuth() {
+        clearAllAuthorizations()
+    }
+
     fun revokeAuthorization(keyFingerprint: String) {
         viewModelScope.launch {
             try {
