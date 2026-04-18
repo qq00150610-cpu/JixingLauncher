@@ -94,7 +94,7 @@ class FileViewModel @Inject constructor() : ViewModel() {
     private fun getMimeType(file: File): String {
         return when {
             file.isDirectory -> "folder"
-            file.extension.lowercase() -> {
+            else -> {
                 when (file.extension.lowercase()) {
                     "jpg", "jpeg", "png", "gif", "bmp", "webp" -> "image/${file.extension}"
                     "mp4", "avi", "mkv", "mov", "wmv" -> "video/${file.extension}"

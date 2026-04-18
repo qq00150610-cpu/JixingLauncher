@@ -112,7 +112,7 @@ fun DragGridItem(
                         onDragCancel = {
                             isDraggingThis = false
                             offsetX = 0f; offsetY = 0f
-                            onDrag()
+                            onDrag(Offset(0f, 0f))
                         },
                         onDrag = { change, dragAmount ->
                             change.consume()
@@ -154,9 +154,9 @@ fun DragGridItem(
                 }
             }
             Spacer(Modifier.height(6.dp))
-            Text(app?.appName ?: gridItem?.appName ?: "", 12.sp, JixingColors.TextPrimaryDark, maxLines = 1, overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Center)
+            Text(text = app?.appName ?: gridItem?.appName ?: "", fontSize = 12.sp, color = JixingColors.TextPrimaryDark, maxLines = 1, overflow = TextOverflow.Ellipsis, textAlign = TextAlign.Center)
             if (isInEditMode && isSelected) {
-                Box(Modifier.size(20.dp).offset(x = 28.dp, y = (-36).dp).clip(RoundedCornerShape(50)).background(JixingColors.Error).align(Alignment.TopEnd),
+                Box(Modifier.size(20.dp).offset(x = 28.dp, y = (-36).dp).clip(RoundedCornerShape(50)).background(JixingColors.Error),
                     contentAlignment = Alignment.Center) {
                     Icon(Icons.Default.Close, "移除", Modifier.size(14.dp), Color.White)
                 }
@@ -185,8 +185,8 @@ fun FolderGridItem(
                 Icon(Icons.Default.Folder, null, Modifier.size(32.dp), JixingColors.AccentAmber)
             }
             Spacer(Modifier.height(6.dp))
-            Text(folderName, 12.sp, JixingColors.TextPrimaryDark, maxLines = 1, overflow = TextOverflow.Ellipsis)
-            Text("$itemCount 个应用", 10.sp, JixingColors.TextSecondaryDark)
+            Text(text = folderName, fontSize = 12.sp, color = JixingColors.TextPrimaryDark, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Text(text = "$itemCount 个应用", fontSize = 10.sp, color = JixingColors.TextSecondaryDark)
         }
     }
 }

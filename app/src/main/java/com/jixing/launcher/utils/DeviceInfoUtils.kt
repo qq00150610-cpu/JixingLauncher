@@ -34,8 +34,8 @@ object DeviceInfoUtils {
             storageTotal = getTotalStorage(),
             storageUsed = getUsedStorage(),
             storageAvailable = getAvailableStorage(),
-            ramTotal = getTotalRam(),
-            ramAvailable = getAvailableRam(),
+            ramTotal = getTotalRam(context),
+            ramAvailable = getAvailableRam(context),
             batteryLevel = getBatteryLevel(context),
             batteryStatus = getBatteryStatus(context)
         )

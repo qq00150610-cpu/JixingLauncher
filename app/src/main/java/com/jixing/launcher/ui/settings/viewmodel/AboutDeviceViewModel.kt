@@ -51,8 +51,8 @@ class AboutDeviceViewModel @Inject constructor(
                 val available = DeviceInfoUtils.getAvailableStorage()
                 _storageInfo.value = StorageInfo(total, used, available)
                 
-                val ramTotal = DeviceInfoUtils.getTotalRam()
-                val ramAvailable = DeviceInfoUtils.getAvailableRam()
+                val ramTotal = DeviceInfoUtils.getTotalRam(context)
+                val ramAvailable = DeviceInfoUtils.getAvailableRam(context)
                 _memoryInfo.value = MemoryInfo(ramTotal, ramAvailable)
             } finally {
                 _isLoading.value = false

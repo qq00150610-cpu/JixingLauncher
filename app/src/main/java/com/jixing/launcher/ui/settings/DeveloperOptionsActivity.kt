@@ -275,6 +275,9 @@ fun AdbStatusOverviewCard(
                             AdbConnectionStatus.CONNECTED -> "已连接"
                             AdbConnectionStatus.CONNECTING -> "连接中"
                             AdbConnectionStatus.DISCONNECTED -> "未连接"
+                            AdbConnectionStatus.ENABLED_WIRED -> "有线已启用"
+                            AdbConnectionStatus.ENABLED_WIRELESS -> "无线已启用"
+                            AdbConnectionStatus.PAIRING -> "配对中"
                         }
                     )
                 }

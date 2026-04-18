@@ -234,12 +234,15 @@ fun rememberScreenInfo(): ScreenInfo {
     val configuration = LocalConfiguration.current
     
     return remember(configuration) {
+        val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
         ScreenInfo(
             screenWidthDp = configuration.screenWidthDp,
             screenHeightDp = configuration.screenHeightDp,
             smallestWidthDp = configuration.smallestScreenWidthDp,
-            isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE,
-            screenCategory = ScreenUtils.getScreenCategory(context)
+            isLandscape = isLandscape,
+            screenCategory = ScreenUtils.getScreenCategory(context),
+            gridColumns = if (isLandscape) ScreenUtils.getRecommendedGridColumnsLandscape(context) else ScreenUtils.getRecommendedGridColumns(context),
+            dockItemCount = ScreenUtils.getRecommendedDockItemCount(context)
         )
     }
 }
@@ -252,21 +255,7 @@ data class ScreenInfo(
     val screenHeightDp: Int,
     val smallestWidthDp: Int,
     val isLandscape: Boolean,
-    val screenCategory: ScreenUtils.ScreenCategory
-) {
-    val gridColumns: Int
-        get() = if (isLandscape) {
-            ScreenUtils.getRecommendedGridColumnsLandscape(
-                LocalContext.current
-            )
-        } else {
-            ScreenUtils.getRecommendedGridColumns(
-                LocalContext.current
-            )
-        }
-    
+    val screenCategory: ScreenUtils.ScreenCategory,
+    val gridColumns: Int,
     val dockItemCount: Int
-        get() = ScreenUtils.getRecommendedDockItemCount(
-            LocalContext.current
-        )
-}
+)

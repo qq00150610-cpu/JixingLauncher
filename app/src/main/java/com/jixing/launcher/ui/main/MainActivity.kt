@@ -113,10 +113,10 @@ fun MainScreen(
     val spacingLarge = dimensionResource(R.dimen.spacing_large)
     
     // 响应式字体大小
-    val textSizeTitle = dimensionResource(R.dimen.text_size_title)
-    val textSizeSubtitle = dimensionResource(R.dimen.text_size_subtitle)
-    val textSizeBody = dimensionResource(R.dimen.text_size_body)
-    val textSizeCaption = dimensionResource(R.dimen.text_size_caption)
+    val textSizeTitle = dimensionResource(R.dimen.text_size_title).value.sp
+    val textSizeSubtitle = dimensionResource(R.dimen.text_size_subtitle).value.sp
+    val textSizeBody = dimensionResource(R.dimen.text_size_body).value.sp
+    val textSizeCaption = dimensionResource(R.dimen.text_size_caption).value.sp
     
     Box(
         modifier = Modifier
@@ -380,7 +380,7 @@ fun AppGridSection(
     // 动态获取网格列数
     val gridColumns = integerResource(R.integer.grid_columns)
     val spacing = dimensionResource(R.dimen.spacing_small)
-    val textSize = dimensionResource(R.dimen.text_size_subtitle)
+    val textSize = dimensionResource(R.dimen.text_size_subtitle).value.sp
     val paddingBottom = dimensionResource(R.dimen.spacing_small)
     val appsPerPage = integerResource(R.integer.apps_per_page)
     
@@ -413,7 +413,7 @@ fun AppGridItem(app: AppInfo, onClick: () -> Unit) {
     val cornerRadius = dimensionResource(R.dimen.card_corner_radius)
     val padding = dimensionResource(R.dimen.app_item_padding)
     val iconSize = dimensionResource(R.dimen.app_icon_size)
-    val textSize = dimensionResource(R.dimen.text_size_small)
+    val textSize = dimensionResource(R.dimen.text_size_small).value.sp
     
     Card(
         modifier = Modifier
@@ -465,7 +465,7 @@ fun BottomNavigationBar(
     val verticalPadding = dimensionResource(R.dimen.spacing_small)
     val iconSize = dimensionResource(R.dimen.icon_size_large)
     val itemPadding = dimensionResource(R.dimen.spacing_small)
-    val textSize = dimensionResource(R.dimen.text_size_small)
+    val textSize = dimensionResource(R.dimen.text_size_small).value.sp
     
     Surface(
         modifier = modifier.fillMaxWidth(),

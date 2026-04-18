@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Process
+import android.provider.Settings
 
 /**
  * 全屏应用检测器 - Windlink X 系统适配

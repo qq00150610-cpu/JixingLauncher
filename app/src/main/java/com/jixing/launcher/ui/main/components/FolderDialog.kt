@@ -42,8 +42,8 @@ fun FolderEditDialog(
             Card(modifier.fillMaxWidth().padding(16.dp), shape = RoundedCornerShape(24.dp),
                 colors = CardDefaults.cardColors(containerColor = JixingColors.SurfaceDark)) {
                 Column(Modifier.padding(24.dp)) {
-                    Text(when (mode) { FolderDialogMode.CREATE -> "创建文件夹" ; FolderDialogMode.RENAME -> "重命名文件夹" ; FolderDialogMode.EDIT -> "编辑文件夹" },
-                        20.sp, FontWeight.Bold, JixingColors.TextPrimaryDark)
+                    Text(text = when (mode) { FolderDialogMode.CREATE -> "创建文件夹" ; FolderDialogMode.RENAME -> "重命名文件夹" ; FolderDialogMode.EDIT -> "编辑文件夹" },
+                        fontSize = 20.sp, fontWeight = FontWeight.Bold, color = JixingColors.TextPrimaryDark)
                     Spacer(Modifier.height(20.dp))
                     OutlinedTextField(value = name, onValueChange = { newValue -> name = newValue }, label = { Text("文件夹名称") },
                         singleLine = true, modifier.fillMaxWidth(),
@@ -55,7 +55,7 @@ fun FolderEditDialog(
                         shape = RoundedCornerShape(12.dp))
                     Spacer(Modifier.height(16.dp))
                     if (mode != FolderDialogMode.RENAME) {
-                        Text("包含的应用", 14.sp, JixingColors.TextSecondaryDark)
+                        Text(text = "包含的应用", fontSize = 14.sp, color = JixingColors.TextSecondaryDark)
                         Spacer(Modifier.height(8.dp))
                         LazyVerticalGrid(columns = GridCells.Fixed(5), modifier.heightIn(max = 120.dp),
                             horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -81,7 +81,7 @@ fun FolderEditDialog(
                             }
                             Spacer(Modifier.weight(1f))
                         }
-                        TextButton(onClick = onDismiss) { Text("取消", JixingColors.TextSecondaryDark) }
+                        TextButton(onClick = onDismiss) { Text(text = "取消", color = JixingColors.TextSecondaryDark) }
                         Spacer(Modifier.width(8.dp))
                         Button(onClick = { onConfirm(name, selectedApps) }, enabled = name.isNotBlank(),
                             colors = ButtonDefaults.buttonColors(containerColor = JixingColors.PrimaryBlue), shape = RoundedCornerShape(12.dp)) { Text("确定") }
@@ -91,8 +91,18 @@ fun FolderEditDialog(
         }
     }
     if (showAppSelector) {
-        AppSelectorDialog(allApps = allApps, selectedApps = folderApps, onDismiss = { showAppSelector = false }, onConfirm = { apps ->
-            selectedApps = apps; showAppSelector = false
+        AppSelectorDialog(allApps = allApps, selectedApps = folderApps.mapNotNull { app -> 
+            allApps.find { it.packageName == app.packageName } 
+        }, onDismiss = { showAppSelector = false }, onConfirm = { apps ->
+            selectedApps = apps.mapIndexed { index, app -> 
+                GridItem(
+                    id = app.packageName,
+                    packageName = app.packageName,
+                    appName = app.appName,
+                    position = index
+                )
+            }
+            showAppSelector = false
         })
     }
 }
@@ -113,7 +123,7 @@ private fun AppSelectorDialog(
         Card(modifier.fillMaxWidth().padding(16.dp), shape = RoundedCornerShape(24.dp),
             colors = CardDefaults.cardColors(containerColor = JixingColors.SurfaceDark)) {
             Column(Modifier.padding(24.dp)) {
-                Text("选择应用", 18.sp, FontWeight.Bold, JixingColors.TextPrimaryDark)
+                Text(text = "选择应用", fontSize = 18.sp, fontWeight = FontWeight.Bold, color = JixingColors.TextPrimaryDark)
                 Spacer(Modifier.height(16.dp))
                 LazyVerticalGrid(columns = GridCells.Fixed(4), modifier.heightIn(max = 300.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -130,7 +140,7 @@ private fun AppSelectorDialog(
                 }
                 Spacer(Modifier.height(16.dp))
                 Row(Modifier.fillMaxWidth(), Arrangement.End) {
-                    TextButton(onClick = onDismiss) { Text("取消", JixingColors.TextSecondaryDark) }
+                    TextButton(onClick = onDismiss) { Text(text = "取消", color = JixingColors.TextSecondaryDark) }
                     Spacer(Modifier.width(8.dp))
                     Button(onClick = { onConfirm(selected.toList()) },
                         colors = ButtonDefaults.buttonColors(containerColor = JixingColors.PrimaryBlue), shape = RoundedCornerShape(12.dp)) { Text("确定 (${selected.size})") }
