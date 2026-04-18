@@ -124,4 +124,15 @@ class UsbConfigManager(private val context: Context) {
     fun updateState() {
         _usbState.value = getCurrentUsbState()
     }
+
+    companion object {
+        @Volatile
+        private var instance: UsbConfigManager? = null
+
+        fun getInstance(context: Context): UsbConfigManager {
+            return instance ?: synchronized(this) {
+                instance ?: UsbConfigManager(context.applicationContext).also { instance = it }
+            }
+        }
+    }
 }

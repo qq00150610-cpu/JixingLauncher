@@ -1,6 +1,8 @@
 package com.jixing.launcher.ui.main
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
@@ -428,8 +430,14 @@ fun AppGridItem(app: AppInfo, onClick: () -> Unit) {
             verticalArrangement = Arrangement.Center
         ) {
             app.icon?.let { icon ->
+                val bitmap = remember(icon) {
+                    Bitmap.createBitmap(icon.intrinsicWidth.coerceAtLeast(1), icon.intrinsicHeight.coerceAtLeast(1), Bitmap.Config.ARGB_8888).also {
+                        icon.setBounds(0, 0, it.width, it.height)
+                        icon.draw(Canvas(it))
+                    }
+                }
                 Image(
-                    bitmap = icon.asImageBitmap(),
+                    bitmap = bitmap.asImageBitmap(),
                     contentDescription = app.appName,
                     modifier = Modifier.size(iconSize)
                 )

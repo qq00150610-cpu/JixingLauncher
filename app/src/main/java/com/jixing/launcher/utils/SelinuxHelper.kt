@@ -67,6 +67,19 @@ object SelinuxHelper {
     fun isEnforcing(): Boolean = getSelinuxMode() == SelinuxMode.ENFORCING
 
     /**
+     * 检查是否有 Root 权限
+     */
+    fun hasRootPermission(): Boolean {
+        return try {
+            val process = Runtime.getRuntime().exec("su -c id")
+            val exitCode = process.waitFor()
+            exitCode == 0
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    /**
      * 执行命令
      */
     private fun executeCommand(command: String): String {

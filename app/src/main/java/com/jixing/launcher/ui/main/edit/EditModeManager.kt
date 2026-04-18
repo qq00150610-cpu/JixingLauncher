@@ -184,7 +184,7 @@ class EditModeManager {
         _folders.update { folders ->
             folders.map { folder ->
                 if (folder.id == folderId) {
-                    folder.copy(items = folder.items + item)
+                    folder.copy(items = (folder.items + item).toMutableList())
                 } else {
                     folder
                 }
@@ -200,7 +200,7 @@ class EditModeManager {
             folders.mapNotNull { folder ->
                 if (folder.id == folderId) {
                     val newItems = folder.items.filter { it.id != itemId }
-                    if (newItems.isEmpty()) null else folder.copy(items = newItems)
+                    if (newItems.isEmpty()) null else folder.copy(items = newItems.toMutableList())
                 } else {
                     folder
                 }
@@ -242,7 +242,7 @@ class EditModeManager {
             pages.add(PageLayout(0, emptyList()))
         }
 
-        val layout = HomeLayout(pages = pages, currentPage = 0)
+        val layout = HomeLayout(pages = pages, folders = emptyList(), currentPage = 0)
         _homeLayout.value = layout
         return layout
     }
@@ -254,14 +254,14 @@ class EditModeManager {
         val layout = _homeLayout.value ?: return null
         if (pageIndex >= layout.pages.size) return null
 
-        val page = layout.pages[pageIndex].toMutableList()
-        if (fromPosition >= page.size || toPosition >= page.size) return null
+        val pageItems = layout.pages[pageIndex].items.toMutableList()
+        if (fromPosition >= pageItems.size || toPosition >= pageItems.size) return null
 
-        val item = page.removeAt(fromPosition)
-        page.add(toPosition, item.copy(position = toPosition))
+        val item = pageItems.removeAt(fromPosition)
+        pageItems.add(toPosition, item.copy(position = toPosition))
 
         // 重新编号
-        val updatedPage = page.mapIndexed { index, app -> app.copy(position = index) }
+        val updatedPage = pageItems.mapIndexed { index, app -> app.copy(position = index) }
         val newPages = layout.pages.toMutableList()
         newPages[pageIndex] = PageLayout(pageIndex, updatedPage)
 

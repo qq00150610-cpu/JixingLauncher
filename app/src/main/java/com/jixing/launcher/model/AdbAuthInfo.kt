@@ -30,6 +30,14 @@ data class AdbStatus(
             connectedComputers = emptyList(),
             isAuthorized = false
         )
+        val ENABLED = AdbStatus(
+            isEnabled = true,
+            isWirelessEnabled = false,
+            wirelessPort = 5555,
+            pairedCode = null,
+            connectedComputers = emptyList(),
+            isAuthorized = true
+        )
     }
 }
 

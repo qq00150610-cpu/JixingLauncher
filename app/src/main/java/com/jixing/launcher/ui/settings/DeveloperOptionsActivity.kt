@@ -415,7 +415,7 @@ fun UsbConfigCard(
     usbState: com.jixing.launcher.model.UsbState,
     onUsbModeChange: (UsbConfig) -> Unit
 ) {
-    val currentMode = usbState.config
+    val currentMode = usbState.currentConfig
     
     Card(
         colors = CardDefaults.cardColors(containerColor = JixingColors.CardDark),

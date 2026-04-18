@@ -11,7 +11,8 @@ enum class UsbConfig(val value: String, val displayName: String) {
     MIDI("midi", "MIDI"),
     RNDIS("rndis", "网络共享"),
     AUDIO_SOURCE("audio_source", "USB 音频"),
-    NCM("ncm", "网络共享 (NCM)");
+    NCM("ncm", "网络共享 (NCM)"),
+    ADB("adb", "ADB 调试");
 
     companion object {
         fun fromValue(value: String): UsbConfig {

@@ -1,5 +1,7 @@
 package com.jixing.launcher.ui.main.components
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
@@ -136,8 +138,14 @@ fun DragGridItem(
                 contentAlignment = Alignment.Center
             ) {
                 if (app?.icon != null) {
+                    val bitmap = remember(app.icon) {
+                        Bitmap.createBitmap(app.icon.intrinsicWidth.coerceAtLeast(1), app.icon.intrinsicHeight.coerceAtLeast(1), Bitmap.Config.ARGB_8888).also {
+                            app.icon.setBounds(0, 0, it.width, it.height)
+                            app.icon.draw(Canvas(it))
+                        }
+                    }
                     androidx.compose.foundation.Image(
-                        bitmap = app.icon.asImageBitmap(),
+                        bitmap = bitmap.asImageBitmap(),
                         contentDescription = app.appName,
                         modifier = Modifier.size(40.dp)
                     )

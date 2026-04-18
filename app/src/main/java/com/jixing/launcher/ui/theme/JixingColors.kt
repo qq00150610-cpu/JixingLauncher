@@ -16,7 +16,9 @@ object JixingColors {
     val AccentAmber = Color(0xFFFFC107)
     val WarningOrange = Color(0xFFFF9800)
     val Error = Color(0xFFF44336)
+    val ErrorRed = Error  // 别名
     val Success = Color(0xFF4CAF50)
+    val Info = PrimaryBlue  // 信息色，使用主蓝色
     
     // 暗色主题 - 背景
     val BackgroundDark = Color(0xFF121212)
