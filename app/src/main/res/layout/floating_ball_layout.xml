@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:background="@android:color/transparent">
+
+    <!-- 悬浮球背景 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/floating_ball_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#E02196F3">
+
+        <!-- 中心图标 -->
+        <ImageView
+            android:id="@+id/floating_ball_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_home_white"
+            android:contentDescription="返回桌面"
+            android:scaleType="fitCenter" />
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

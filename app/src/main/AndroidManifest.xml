@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Network permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <!-- Storage permissions -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
+
+    <!-- System permissions -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+
+    <!-- Hardware features -->
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+
+    <!-- Automotive specific - 改为可选，支持普通手机安装 -->
+    <uses-feature android:name="android.software.car.launcher" android:required="false" />
+    <uses-feature android:name="android.hardware.type.automotive" android:required="false" />
+
+    <application
+        android:name=".CarLauncherApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.JixingLauncher"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        tools:targetApi="34">
+
+        <!-- Main Launcher Activity - 支持横竖屏切换 -->
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser"
+            android:theme="@style/Theme.JixingLauncher.Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Floating Navigation Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.navigation.FloatingNavActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Overlay"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser"
+            android:excludeFromRecents="true"
+            android:taskAffinity="" />
+
+        <!-- Media Center Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.media.MediaCenterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Main"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser" />
+
+        <!-- Settings Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Main"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser" />
+
+        <!-- App Manager Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.apps.AppManagerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Main"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser" />
+
+        <!-- File Manager Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.files.FileManagerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Main"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser" />
+
+        <!-- HVAC Control Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.hvac.HvacControlActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Main"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser" />
+
+        <!-- Voice Assistant Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.voice.VoiceAssistantActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Main"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser" />
+
+        <!-- Developer Options Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.settings.DeveloperOptionsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Main"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser" />
+
+        <!-- About Device Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.settings.AboutDeviceActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Main"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser" />
+
+        <!-- Factory Mode Activity - 支持横竖屏 -->
+        <activity
+            android:name=".ui.factory.FactoryModeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.JixingLauncher.Main"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:screenOrientation="fullUser" />
+
+        <!-- Floating Ball Service -->
+        <service
+            android:name=".services.FloatingBallService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <!-- Media Playback Service -->
+        <service
+            android:name=".services.MediaPlaybackService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <!-- Navigation Service -->
+        <service
+            android:name=".services.NavigationService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <!-- Voice Assistant Service -->
+        <service
+            android:name=".services.VoiceAssistantService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <!-- System Info Service -->
+        <service
+            android:name=".services.SystemInfoService"
+            android:exported="false" />
+
+        <!-- Overlay Permission Receiver -->
+        <receiver
+            android:name=".utils.OverlayPermissionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Car App Library Service -->
+        <service
+            android:name="androidx.car.app.CarAppService"
+            android:exported="true"
+            android:permission="androidx.car.app.permission.NAVIGATION_APP_META_DATA">
+            <intent-filter>
+                <action android:name="androidx.car.app.CarAppService" />
+                <category android:name="androidx.car.app.category.PARKING" />
+                <category android:name="androidx.car.app.category.CHARGING" />
+            </intent-filter>
+            <meta-data
+                android:name="androidx.car.app.MIN_API_LEVEL"
+                android:value="2" />
+            <meta-data
+                android:name="androidx.car.app.MAP_LAYOUT"
+                android:resource="@xml/car_app_launcher" />
+        </service>
+
+    </application>
+
+</manifest>

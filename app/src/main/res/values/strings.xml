@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">极行桌面</string>
+    
+    <!-- 主界面 -->
+    <string name="main_home">首页</string>
+    <string name="main_apps">应用</string>
+    <string name="main_files">文件</string>
+    <string name="main_factory">工厂</string>
+    
+    <!-- 快捷功能 -->
+    <string name="quick_navigation">导航</string>
+    <string name="quick_media">音乐</string>
+    <string name="quick_hvac">空调</string>
+    <string name="quick_settings">设置</string>
+    <string name="quick_voice">语音</string>
+    
+    <!-- 车辆状态 -->
+    <string name="vehicle_speed">车速</string>
+    <string name="vehicle_fuel">燃油</string>
+    <string name="vehicle_battery">电池</string>
+    <string name="vehicle_rpm">转速</string>
+    <string name="vehicle_temperature">温度</string>
+    
+    <!-- 空调控制 -->
+    <string name="hvac_power">电源</string>
+    <string name="hvac_temperature">温度</string>
+    <string name="hvac_fan_speed">风速</string>
+    <string name="hvac_mode">模式</string>
+    <string name="hvac_auto">自动</string>
+    <string name="hvac_cool">制冷</string>
+    <string name="hvac_heat">制热</string>
+    <string name="hvac_vent">通风</string>
+    <string name="hvac_defrost">除雾</string>
+    <string name="hvac_front_defrost">前除霜</string>
+    <string name="hvac_rear_defrost">后除霜</string>
+    <string name="hvac_sync">同步</string>
+    <string name="hvac_left">左侧</string>
+    <string name="hvac_right">右侧</string>
+    
+    <!-- 媒体中心 -->
+    <string name="media_now_playing">正在播放</string>
+    <string name="media_playlist">播放列表</string>
+    <string name="media_search">搜索</string>
+    <string name="media_play">播放</string>
+    <string name="media_pause">暂停</string>
+    <string name="media_next">下一首</string>
+    <string name="media_previous">上一首</string>
+    
+    <!-- 设置 -->
+    <string name="settings_display">显示</string>
+    <string name="settings_sound">声音</string>
+    <string name="settings_hvac">空调</string>
+    <string name="settings_driving">驾驶辅助</string>
+    <string name="settings_system">系统</string>
+    <string name="settings_dark_mode">深色模式</string>
+    <string name="settings_brightness">屏幕亮度</string>
+    <string name="settings_sound_effects">系统音效</string>
+    <string name="settings_nav_voice">导航语音</string>
+    <string name="settings_media_volume">媒体音量</string>
+    <string name="settings_temp_sync">温度同步</string>
+    <string name="settings_temp_unit">温度单位</string>
+    <string name="settings_driving_mode">驾驶模式</string>
+    <string name="settings_voice_assistant">语音助手</string>
+    <string name="settings_floating_ball">悬浮球</string>
+    <string name="settings_about">关于</string>
+    
+    <!-- 应用管理 -->
+    <string name="apps_all">全部</string>
+    <string name="apps_user">用户</string>
+    <string name="apps_system">系统</string>
+    <string name="apps_search_hint">搜索应用</string>
+    <string name="apps_system_app">系统</string>
+    
+    <!-- 文件管理 -->
+    <string name="files_empty">此文件夹为空</string>
+    <string name="files_refresh">刷新</string>
+    
+    <!-- 语音助手 -->
+    <string name="voice_listening">请说话...</string>
+    <string name="voice_tap_to_start">点击开始语音</string>
+    <string name="voice_quick_commands">快捷命令</string>
+    <string name="voice_recent">最近</string>
+    
+    <!-- 工厂模式 -->
+    <string name="factory_warning">警告：此模式仅供专业人员使用</string>
+    <string name="factory_vehicle_status">车辆状态</string>
+    <string name="factory_system_info">系统信息</string>
+    <string name="factory_sensor_test">传感器测试</string>
+    <string name="factory_display_test">显示屏测试</string>
+    <string name="factory_reset">恢复出厂设置</string>
+    
+    <!-- 导航 -->
+    <string name="nav_search_destination">搜索目的地</string>
+    <string name="nav_quick_destinations">快捷目的地</string>
+    <string name="nav_home">回家</string>
+    <string name="nav_work">去公司</string>
+    <string name="nav_gas_station">加油站</string>
+    <string name="nav_parking">停车场</string>
+    <string name="nav_zoom">缩放</string>
+    <string name="nav_layers">图层</string>
+    <string name="nav_route">路线</string>
+    <string name="nav_location">定位</string>
+</resources>

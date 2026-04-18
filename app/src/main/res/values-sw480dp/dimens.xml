@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 普通手机 (sw480dp) - 默认值 -->
+    
+    <!-- 间距 -->
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_xlarge">32dp</dimen>
+    
+    <!-- 触摸目标尺寸 -->
+    <dimen name="touch_target_min">64dp</dimen>
+    <dimen name="button_size_large">96dp</dimen>
+    <dimen name="button_size_medium">72dp</dimen>
+    <dimen name="button_size_small">56dp</dimen>
+    
+    <!-- 卡片尺寸 -->
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    
+    <!-- 导航栏 -->
+    <dimen name="nav_bar_height">80dp</dimen>
+    <dimen name="quick_nav_height">60dp</dimen>
+    
+    <!-- 悬浮球 -->
+    <dimen name="floating_ball_size">64dp</dimen>
+    <dimen name="floating_ball_margin">32dp</dimen>
+    
+    <!-- 图标尺寸 -->
+    <dimen name="icon_size_small">16dp</dimen>
+    <dimen name="icon_size_medium">24dp</dimen>
+    <dimen name="icon_size_large">32dp</dimen>
+    <dimen name="icon_size_xlarge">48dp</dimen>
+    
+    <!-- 字体大小 -->
+    <dimen name="text_size_title">28sp</dimen>
+    <dimen name="text_size_subtitle">20sp</dimen>
+    <dimen name="text_size_body">16sp</dimen>
+    <dimen name="text_size_caption">14sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    
+    <!-- 网格配置 - 竖屏4列 -->
+    <integer name="grid_columns">4</integer>
+    <integer name="grid_rows">4</integer>
+    <integer name="apps_per_page">16</integer>
+    
+    <!-- Dock栏 -->
+    <dimen name="dock_icon_size">56dp</dimen>
+    <dimen name="dock_height">80dp</dimen>
+    <integer name="dock_item_count">5</integer>
+    
+    <!-- 快捷卡片 -->
+    <dimen name="quick_card_size">100dp</dimen>
+    <dimen name="quick_icon_size">44dp</dimen>
+    
+    <!-- 应用网格项 -->
+    <dimen name="app_icon_size">44dp</dimen>
+    <dimen name="app_item_padding">10dp</dimen>
+</resources>

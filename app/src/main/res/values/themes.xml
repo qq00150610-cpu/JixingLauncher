@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base Application Theme - 深色主题 -->
+    <style name="Theme.JixingLauncher" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryDark">@color/primary_blue_dark</item>
+        <item name="colorAccent">@color/accent_amber</item>
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:statusBarColor">@color/background_dark</item>
+        <item name="android:navigationBarColor">@color/background_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    
+    <!-- Main Activity Theme -->
+    <style name="Theme.JixingLauncher.Main">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="p">shortEdges</item>
+    </style>
+    
+    <!-- Overlay Theme for Floating Windows -->
+    <style name="Theme.JixingLauncher.Overlay">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    
+    <!-- Card Style -->
+    <style name="JixingCard">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardBackgroundColor">@color/card_dark</item>
+    </style>
+    
+    <!-- Large Button Style -->
+    <style name="JixingButton" parent="">
+    </style>
+    
+    <style name="JixingButton.Large">
+        <item name="android:minHeight">@dimen/button_size_large</item>
+        <item name="android:minWidth">@dimen/button_size_large</item>
+        <item name="android:textSize">@dimen/text_size_body</item>
+        <item name="android:textColor">@color/text_primary_dark</item>
+        <item name="android:background">@color/card_dark</item>
+    </style>
+    
+    <!-- Quick Access Button Style -->
+    <style name="JixingQuickAccess">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:background">@color/card_dark</item>
+        <item name="android:textColor">@color/text_primary_dark</item>
+    </style>
+</resources>
