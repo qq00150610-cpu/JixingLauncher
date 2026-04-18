@@ -45,14 +45,22 @@ fun FolderEditDialog(
                     Text(text = when (mode) { FolderDialogMode.CREATE -> "创建文件夹" ; FolderDialogMode.RENAME -> "重命名文件夹" ; FolderDialogMode.EDIT -> "编辑文件夹" },
                         fontSize = 20.sp, fontWeight = FontWeight.Bold, color = JixingColors.TextPrimaryDark)
                     Spacer(Modifier.height(20.dp))
-                    OutlinedTextField(value = name, onValueChange = { newValue -> name = newValue }, label = { Text("文件夹名称") },
-                        singleLine = true, modifier.fillMaxWidth(),
+                    OutlinedTextField(
+                        value = name, 
+                        onValueChange = { newValue -> name = newValue }, 
+                        label = { Text(text = "文件夹名称") },
+                        singleLine = true, 
+                        modifier = modifier.fillMaxWidth(),
                         colors = OutlinedTextFieldDefaults.colors(
-                            focusedTextColor = JixingColors.TextPrimaryDark, unfocusedTextColor = JixingColors.TextPrimaryDark,
-                            focusedBorderColor = JixingColors.PrimaryBlue, unfocusedBorderColor = JixingColors.CardDark,
-                            focusedLabelColor = JixingColors.PrimaryBlue, unfocusedLabelColor = JixingColors.TextSecondaryDark,
+                            focusedTextColor = JixingColors.TextPrimaryDark, 
+                            unfocusedTextColor = JixingColors.TextPrimaryDark,
+                            focusedBorderColor = JixingColors.PrimaryBlue, 
+                            unfocusedBorderColor = JixingColors.CardDark,
+                            focusedLabelColor = JixingColors.PrimaryBlue, 
+                            unfocusedLabelColor = JixingColors.TextSecondaryDark,
                             cursorColor = JixingColors.PrimaryBlue),
-                        shape = RoundedCornerShape(12.dp))
+                        shape = RoundedCornerShape(12.dp)
+                    )
                     Spacer(Modifier.height(16.dp))
                     if (mode != FolderDialogMode.RENAME) {
                         Text(text = "包含的应用", fontSize = 14.sp, color = JixingColors.TextSecondaryDark)

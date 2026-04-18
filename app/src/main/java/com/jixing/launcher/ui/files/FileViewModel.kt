@@ -94,20 +94,17 @@ class FileViewModel @Inject constructor() : ViewModel() {
     private fun getMimeType(file: File): String {
         return when {
             file.isDirectory -> "folder"
-            else -> {
-                when (file.extension.lowercase()) {
-                    "jpg", "jpeg", "png", "gif", "bmp", "webp" -> "image/${file.extension}"
-                    "mp4", "avi", "mkv", "mov", "wmv" -> "video/${file.extension}"
-                    "mp3", "wav", "flac", "aac", "ogg" -> "audio/${file.extension}"
-                    "pdf" -> "application/pdf"
-                    "txt", "log", "xml", "json" -> "text/plain"
-                    "doc", "docx" -> "application/msword"
-                    "xls", "xlsx" -> "application/vnd.ms-excel"
-                    "zip", "rar", "7z", "tar", "gz" -> "application/zip"
-                    else -> "application/octet-stream"
-                }
+            else -> when (file.extension.lowercase()) {
+                "jpg", "jpeg", "png", "gif", "bmp", "webp" -> "image/${file.extension}"
+                "mp4", "avi", "mkv", "mov", "wmv" -> "video/${file.extension}"
+                "mp3", "wav", "flac", "aac", "ogg" -> "audio/${file.extension}"
+                "pdf" -> "application/pdf"
+                "txt", "log", "xml", "json" -> "text/plain"
+                "doc", "docx" -> "application/msword"
+                "xls", "xlsx" -> "application/vnd.ms-excel"
+                "zip", "rar", "7z", "tar", "gz" -> "application/zip"
+                else -> "application/octet-stream"
             }
-            else -> "application/octet-stream"
         }
     }
 }

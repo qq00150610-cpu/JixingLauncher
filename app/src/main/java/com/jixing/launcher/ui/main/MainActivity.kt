@@ -249,7 +249,7 @@ fun QuickAccessSection(
     val cardSize = dimensionResource(R.dimen.quick_card_size)
     val iconSize = dimensionResource(R.dimen.quick_icon_size)
     val cardPadding = dimensionResource(R.dimen.card_padding)
-    val textSize = dimensionResource(R.dimen.text_size_caption)
+    val textSize = dimensionResource(R.dimen.text_size_caption).value.sp
     
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(spacing),
