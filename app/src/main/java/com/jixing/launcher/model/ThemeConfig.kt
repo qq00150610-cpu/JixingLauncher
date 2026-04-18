@@ -38,6 +38,7 @@ object JixingColors {
     val Success = Color(0xFF4CAF50)
     val Warning = Color(0xFFFF9800)
     val Error = Color(0xFFF44336)
+    val ErrorRed = Error  // 别名，用于错误提示
     val Info = Color(0xFF2196F3)
     
     // 功能颜色
