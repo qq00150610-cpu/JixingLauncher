@@ -7,7 +7,8 @@ data class AdbAuthInfo(
     val computerName: String,
     val keyFingerprint: String,
     val authorizedTime: Long,
-    val isCurrentComputer: Boolean = false
+    val isCurrentComputer: Boolean = false,
+    val ipAddress: String = ""
 )
 
 /**

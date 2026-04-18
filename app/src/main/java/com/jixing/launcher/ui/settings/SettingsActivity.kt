@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
@@ -59,6 +60,7 @@ class SettingsActivity : ComponentActivity() {
 @Composable
 fun SettingsScreen(viewModel: SettingsViewModel, onBack: () -> Unit) {
     val settings by viewModel.settings.collectAsState()
+    val context = LocalContext.current
     
     Box(
         modifier = Modifier
@@ -192,8 +194,8 @@ fun SettingsScreen(viewModel: SettingsViewModel, onBack: () -> Unit) {
                             type = SettingType.ACTION,
                             value = "",
                             onValueChange = { 
-                                val intent = Intent(this@SettingsActivity, DeveloperOptionsActivity::class.java)
-                                startActivity(intent)
+                                val intent = Intent(context, DeveloperOptionsActivity::class.java)
+                                context.startActivity(intent)
                             }
                         )
                         SettingsItem(
@@ -203,8 +205,8 @@ fun SettingsScreen(viewModel: SettingsViewModel, onBack: () -> Unit) {
                             type = SettingType.ACTION,
                             value = "",
                             onValueChange = { 
-                                val intent = Intent(this@SettingsActivity, AboutDeviceActivity::class.java)
-                                startActivity(intent)
+                                val intent = Intent(context, AboutDeviceActivity::class.java)
+                                context.startActivity(intent)
                             }
                         )
                     }
